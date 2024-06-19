@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Monitoring</h1>
+        <div class="options">
+            <a href="https://blr1.blynk.cloud/dashboard/295096/global/devices/2146845/organization/295096/devices/1055472/dashboard" class="btn">Monitoring and Analysis Mode</a>
+            <a href="file:///C:/Users/karth/Desktop/IOT%20Lab/Forescast.html" class="btn">Forecast Mode</a>
+        </div>
+    </div>
+</body>
+</html>

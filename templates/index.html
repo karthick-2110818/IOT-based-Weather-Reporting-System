@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature and Humidity Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom right, #756AB6, #AC87C5, #E0AED0, #FFE5E5); /* Background gradient */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: black; /* Heading color */
+            font-family: 'Jacques Francois', cursive; /* Jacques Francois font */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Form background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            color: #555555;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button[type="button"], button[type="submit"] {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50; /* Button background color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="button"]:hover, button[type="submit"]:hover {
+            background-color: #45a049; /* Button background color on hover */
+        }
+
+        #prediction-result {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFE5E5; /* Result background color */
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #prediction-result h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+
+        #prediction-result p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature and Humidity Prediction</h1>
+    <form id="prediction-form">
+        <h2>Select Timeframes:</h2>
+        <div>
+            <input type="checkbox" id="timeframe_1" name="timeframes" value="6:00 PM">
+            <label for="timeframe_1">6:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_2" name="timeframes" value="6:30 PM">
+            <label for="timeframe_2">6:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_3" name="timeframes" value="7:00 PM">
+            <label for="timeframe_3">7:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_4" name="timeframes" value="7:30 PM">
+            <label for="timeframe_4">7:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_5" name="timeframes" value="8:00 PM">
+            <label for="timeframe_5">8:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_6" name="timeframes" value="8:30 PM">
+            <label for="timeframe_6">8:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_7" name="timeframes" value="9:00 PM">
+            <label for="timeframe_7">9:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_8" name="timeframes" value="9:30 PM">
+            <label for="timeframe_8">9:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_9" name="timeframes" value="10:00 PM">
+            <label for="timeframe_9">10:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_10" name="timeframes" value="10:30 PM">
+            <label for="timeframe_10">10:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_11" name="timeframes" value="11:00 PM">
+            <label for="timeframe_11">11:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_12" name="timeframes" value="11:30 PM">
+            <label for="timeframe_12">11:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_13" name="timeframes" value="12:30 AM">
+            <label for="timeframe_13">12:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_14" name="timeframes" value="1:00 AM">
+            <label for="timeframe_14">1:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_15" name="timeframes" value="1:30 AM">
+            <label for="timeframe_15">1:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_16" name="timeframes" value="2:00 AM">
+            <label for="timeframe_16">2:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_17" name="timeframes" value="2:30 AM">
+            <label for="timeframe_17">2:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_18" name="timeframes" value="3:00 AM">
+            <label for="timeframe_18">3:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_19" name="timeframes" value="3:30 AM">
+            <label for="timeframe_19">3:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_20" name="timeframes" value="4:00 AM">
+            <label for="timeframe_20">4:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_21" name="timeframes" value="4:30 AM">
+            <label for="timeframe_21">4:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_22" name="timeframes" value="5:00 AM">
+            <label for="timeframe_22">5:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_23" name="timeframes" value="5:30 AM">
+            <label for="timeframe_23">5:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_24" name="timeframes" value="6:00 AM">
+            <label for="timeframe_24">6:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_25" name="timeframes" value="6:30 AM">
+            <label for="timeframe_25">6:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_26" name="timeframes" value="7:00 AM">
+            <label for="timeframe_26">7:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_27" name="timeframes" value="7:30 AM">
+            <label for="timeframe_27">7:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_28" name="timeframes" value="8:00 AM">
+            <label for="timeframe_28">8:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_29" name="timeframes" value="8:30 AM">
+            <label for="timeframe_29">8:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_30" name="timeframes" value="9:00 AM">
+            <label for="timeframe_30">9:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_31" name="timeframes" value="9:30 AM">
+            <label for="timeframe_31">9:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_32" name="timeframes" value="10:00 AM">
+            <label for="timeframe_32">10:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_33" name="timeframes" value="10:30 AM">
+            <label for="timeframe_33">10:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_34" name="timeframes" value="11:00 AM">
+            <label for="timeframe_34">11:00 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_35" name="timeframes" value="11:30 AM">
+            <label for="timeframe_35">11:30 AM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_36" name="timeframes" value="12:00 PM">
+            <label for="timeframe_36">12:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_37" name="timeframes" value="12:30 PM">
+            <label for="timeframe_37">12:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_38" name="timeframes" value="1:00 PM">
+            <label for="timeframe_38">1:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_39" name="timeframes" value="1:30 PM">
+            <label for="timeframe_39">1:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_40" name="timeframes" value="2:00 PM">
+            <label for="timeframe_40">2:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_41" name="timeframes" value="2:30 PM">
+            <label for="timeframe_41">2:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_42" name="timeframes" value="3:00 PM">
+            <label for="timeframe_42">3:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_43" name="timeframes" value="3:30 PM">
+            <label for="timeframe_43">3:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_44" name="timeframes" value="4:00 PM">
+            <label for="timeframe_44">4:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_45" name="timeframes" value="4:30 PM">
+            <label for="timeframe_45">4:30 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_46" name="timeframes" value="5:00 PM">
+            <label for="timeframe_46">5:00 PM</label>
+        </div>
+        <div>
+            <input type="checkbox" id="timeframe_47" name="timeframes" value="5:30 PM">
+            <label for="timeframe_47">5:30 PM</label>
+        </div>
+
+        <h2>Enter Observed Temperature and Humidity:</h2>
+        <div id="observed-data">
+            <!-- Observed temperature and humidity inputs will be added here dynamically -->
+        </div>
+        <button type="button" onclick="addInputs()">Add Observed Data</button>
+        <button type="submit">Predict</button>
+    </form>
+
+    <div id="prediction-result">
+        <!-- Prediction results will be displayed here -->
+    </div>
+
+    <script>
+        // Function to add observed temperature and humidity inputs dynamically
+        function addInputs() {
+            const formDiv = document.getElementById("observed-data");
+            const selectedTimeframes = document.querySelectorAll('input[name="timeframes"]:checked');
+            formDiv.innerHTML = ""; // Clear previous inputs
+            
+            if (selectedTimeframes.length < 5 || selectedTimeframes.length > 46) {
+                alert("Please select a minimum of 5 and maximum of 46 timeframes.");
+                return;
+            }
+            
+            selectedTimeframes.forEach((checkbox) => {
+                const time = checkbox.value;
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <label for="temperature_${time}">Temperature (°C) during ${time}:</label>
+                    <input type="number" id="temperature_${time}" name="temperature_${time}" min="-50" max="50" step="0.1" required>
+                    <label for="humidity_${time}">Humidity (%) during ${time}:</label>
+                    <input type="number" id="humidity_${time}" name="humidity_${time}" min="0" max="100" step="0.1" required><br>
+                `;
+                formDiv.appendChild(div);
+            });
+        }
+
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Serialize form data
+            const formData = new FormData(event.target);
+            
+            // Convert form data to JSON
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                if (jsonData.hasOwnProperty(key)) {
+                    if (!Array.isArray(jsonData[key])) {
+                        jsonData[key] = [jsonData[key]];
+                    }
+                    jsonData[key].push(value);
+                } else {
+                    jsonData[key] = value;
+                }
+            });
+            
+            // Send POST request to /predict endpoint
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display prediction results
+                const resultDiv = document.getElementById("prediction-result");
+                resultDiv.innerHTML = "<h2>Prediction Results:</h2>";
+                for (const [time, prediction] of Object.entries(data)) {
+                    resultDiv.innerHTML += `<p><strong>Timeframe:</strong> ${time}</p>` +
+                                           `<p><strong>Predicted Temperature:</strong> ${prediction.temperature.toFixed(2)}°C</p>` +
+                                           `<p><strong>Predicted Humidity:</strong> ${prediction.humidity.toFixed(2)}%</p><br>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
